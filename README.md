@@ -11,15 +11,15 @@ The directory contains a `Vagrantfile` which is the build script, and a `package
 ## Installation:
 * Make sure you install the required software above
 * Clone the repo: `git clone https://github.com/UWEcoCAR/UW-Infotainment.git`
-* Download the `package.box` (large file) [here](https://drive.google.com/file/d/0B4G8-6r3M_jseU14ZmN2WUdSU0E/view?usp=sharing). Save it in the `VM/` subdirectory of this repo.
-* `cd` to the `VM/` directory
+* Download the `package.box` (large file) [here](https://drive.google.com/file/d/0B4G8-6r3M_jseU14ZmN2WUdSU0E/view?usp=sharing). Save it in this repo.
+* `cd` to this repo
 * Install the box: `vagrant box add simulator package.box`
 * Run `vagrant up` (this will install the latest packages for the dev environment). Vagrant will now start Virtual Box, SSH in and automatically install packages. Hopefully everything updates installs correctly.
 * The `package.box` file can now be deleted
 * The VM is permanently in the Virtual Box's default directory
 
 ## Usage:
-* Run `vagrant up` in the `VM/` directory to open the vm
+* Run `vagrant up` in the repo directory to open the vm
 * `vagrant reload`can reload a running vm
 * the `--provision` argument will rerun the install scripts in the above commands
 * To stop the vm run `vagrant halt`
