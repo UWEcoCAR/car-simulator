@@ -55,7 +55,6 @@ class Driver(object):
         angle = self.state.angle
         dist = self.state.trackPos
         steer = (angle - dist)/self.steer_lock
-        sys.stdout.write('Angle: %0.6f \t' % steer)
         self.control.setSteer(steer)
 
     def gear(self):
@@ -75,14 +74,11 @@ class Driver(object):
 
         if not up and rpm < 3000:
             gear -= 1
-
-        sys.stdout.write('Gear : %d\tRPM : %d\t' % (gear,rpm))
         self.control.setGear(gear)
 
     def speed(self):
         speed = self.state.getSpeedX()
         accel = self.control.getAccel()
-        sys.stdout.write('Speed : %0.2f\tAccel : %f\n' % (speed, accel))
         if speed < self.max_speed:
             accel += 0.1
             if accel > 1:
