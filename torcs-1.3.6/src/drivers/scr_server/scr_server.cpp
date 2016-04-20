@@ -325,6 +325,16 @@ newrace(int index, tCarElt* car, tSituation *s)
 static void
 drive(int index, tCarElt* car, tSituation *s)
 {
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //---------------------------------PRINT DATA TO STDOUT HERE-------------------------------------------//
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  tdble yaw_rel = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw; // relative yaw
+  printf("Bot :\tSpeed : %0.2f \tYaw : %0.2f\tRPM : %0.2f\tGear : %d\tFuel : %0.2f\n",
+          3.6*car->_speed_x,yaw_rel, car->_enginerpm, car->_gear, car->_fuel);
+  std::cout.flush();
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     total_tics[index]++;
 
@@ -510,7 +520,7 @@ if (RESTARTING[index]==0)
 #endif
 
 #ifdef __STEP_LIMIT__
-    
+
     if (total_tics[index]>__STEP_LIMIT__)
     {
 	RESTARTING[index] = 1;
@@ -528,7 +538,7 @@ if (RESTARTING[index]==0)
 	return;
     }
 #endif
-	
+
 
     // Sending the car state to the client
     if (sendto(listenSocket[index], line, strlen(line) + 1, 0,
@@ -679,7 +689,7 @@ if (curPosition==max_pos)
 	fprintf(f,"\n\n\n");
 	fclose(f);
 }
-//std::cout << "car,pos,points,time,bestLap,damages"<< std::endl;  
+//std::cout << "car,pos,points,time,bestLap,damages"<< std::endl;
 //std::cout << "champ" << (index+1) <<"," << position <<"," << points[position-1] <<"," << totalTime[index] <<"," << bestLap[index] <<"\t" << damages[index]<< std::endl;
 #endif
 
@@ -738,4 +748,3 @@ double normRand(double avg,double std)
 	    y2 = x2 * w;
 	    return y1*std + avg;
 }
-
