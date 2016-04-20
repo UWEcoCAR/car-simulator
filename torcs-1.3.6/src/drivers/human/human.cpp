@@ -51,6 +51,8 @@
 #define DFWD 1
 #define D4WD 2
 
+#include <iostream>
+
 static void initTrack(int index, tTrack* track, void *carHandle, void **carParmHandle, tSituation *s);
 static void drive_mt(int index, tCarElt* car, tSituation *s);
 static void drive_at(int index, tCarElt* car, tSituation *s);
@@ -464,8 +466,10 @@ static void common_drive(int index, tCarElt* car, tSituation *s)
   //---------------------------------PRINT DATA TO STDOUT HERE-------------------------------------------//
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
   tdble yaw_rel = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw; // relative yaw
-  printf("Speed : %0.2f \tYaw : %0.2f\tRPM : %0.2f\tGear : %d\tFuel : %0.2f\n",
+  printf("Human :\tSpeed : %0.2f \tYaw : %0.2f\tRPM : %0.2f\tGear : %d\tFuel : %0.2f\n",
           3.6*car->_speed_x,yaw_rel, car->_enginerpm, car->_gear, car->_fuel);
+  std::cout.flush();
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	static int firstTime = 1;
