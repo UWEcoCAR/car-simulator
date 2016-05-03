@@ -12,6 +12,7 @@ The directory contains a `Vagrantfile` which is the build script, and a `package
 * Make sure you install the required software above
 * Clone the repo: `git clone https://github.com/UWEcoCAR/UW-Infotainment.git`
 * Download the `package.box` (large file) [here](https://drive.google.com/file/d/0B4G8-6r3M_jseU14ZmN2WUdSU0E/view?usp=sharing). Save it in this repo.
+* You may also want the torcs source code [here](https://drive.google.com/file/d/0B-HGy6dgp_EHdjBTQXJLSTFBMEE/view?usp=sharing)
 * `cd` to this repo
 * Install the box: `vagrant box add simulator package.box`
 * Run `vagrant up` (this will install the latest packages for the dev environment). Vagrant will now start Virtual Box, SSH in and automatically install packages. Hopefully everything updates installs correctly.
